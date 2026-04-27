@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
 
-router.post('/employee', async(req,res)=>{
+router.post('/employee', async (req,res)=>{
     try {
        const { FirstName, LastName, Position, Address, Telephone, Gender, DepartmentCode,hiredDate } = req.body;
        const sql ='insert into Employee(FirstName, LastName, Position, Address, Telephone, Gender, DepartmentCode,hiredDate) values(?,?,?,?,?,?,?,?)';
@@ -114,8 +114,5 @@ try {
         return res.status(500).json({message:'Internal Error'});
 }
 });
-
-
-
 
 module.exports = router ;

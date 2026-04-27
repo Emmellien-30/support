@@ -6,7 +6,9 @@ const app = express();
 
 const { testConnection } = require("./config/db");
 const authRouter = require('./router/auth');
-const IndexRouter = require('./router/index');
+const CarRouter = require('./router/car');
+const ServicesRouter = require('./router/Servises');
+const ServiceRecord = require('./router/SerciseRecord');
 
 
 app.use(express.json());
@@ -14,7 +16,9 @@ app.use(cors());
 
 
 app.use('/api',authRouter);
-app.use('/api', IndexRouter);
+app.use('/api',CarRouter);
+app.use('/api', ServicesRouter);
+app.use('/api',ServiceRecord);
 
 // test DB before starting server
 testConnection();

@@ -8,7 +8,7 @@ router.post('/services', async(req,res)=>{
         const insert = `INSERT INTO Services(ServiceName,ServicePrice) Values(?,?);`;
         const [result] = await db.query(insert,[ServiceName,ServicePrice]);
         res.status(201).json({message: "Servise Sucessfull Inserted"})
-        
+         
     } catch (err) {
         res.status(500).json({message: err.message});
     }
